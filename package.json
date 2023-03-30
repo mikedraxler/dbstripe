@@ -9,8 +9,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "node app.js",
-    "build": "node app.js"
+    "start": "node app.js"
   },
   "description": "In this tutorial we will create simple form that will save user data to server implemented in Node.js with MongoDB database and allow us to see saved data on a separate page in JSON format.",
   "version": "1.0.0",
