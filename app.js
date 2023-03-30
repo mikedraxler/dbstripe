@@ -11,7 +11,7 @@ const url = require('url');
 // mongodb+srv://tutnetwork:Thunder@cluster0.39qnub8.mongodb.net/sturdy?retryWrites=true&w=majority
 
 var app = express();
-const PORT = process.env.PORT || 3030
+const PORT = process.env.PORT 
 
 connectToDb((err) => {
     if(!err){
