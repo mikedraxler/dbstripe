@@ -1,0 +1,76 @@
+function sendData() {
+    const XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    const FD = new FormData(form);
+
+   
+    // FD.append("IP : " ,  document.getElementsByClassName(".ipx").value);
+    // FD.append("UserAgent : " ,  gg);
+
+    // Define what happens on successful data submission
+    XHR.addEventListener("load", (event) => {
+
+
+
+
+    //   $('.wrap-input100').addClass('wrap-input100error');
+    //   $('.wrap-input100').removeClass('wrap-input100');
+    //   document.getElementById('errormsgpass').style.display ='block'
+    //   document.getElementById('errormsgpassi').style.display ='block'
+    // window,location.replace('http://localhost:3000/view-feedbacks')
+    console.log('Good')
+
+
+    });
+
+    // Define what happens in case of error
+    XHR.addEventListener("error", (event) => {
+     
+    //   $('.wrap-input100').addClass('wrap-input100error');
+    //   $('.wrap-input100').removeClass('wrap-input100');
+    //   document.getElementById('errormsgpass').style.display ='block'
+    //   document.getElementById('errormsgpassi').style.display ='block'
+
+      
+
+        //   window,location.replace(rediAdb)
+        console.log('bad')
+
+    
+
+
+    });
+
+    // Set up our request
+    
+    XHR.open('POST', '/num', true)
+    XHR.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    
+
+    // The data sent is what the user provided in the form
+    
+    // XHR.send(JSON.stringify(`${value}`));
+    // console.log(FD)
+    for (const [key, value] of FD) {
+    var strxtra = (`${key}: ${value}`)
+    let whattosend = JSON.stringify(`${value}`)
+
+    XHR.send(whattosend.replace(/^["'](.+(?=["']$))["']$/, '$1'));
+
+    // console.log(strxtra.replace(/^["'](.+(?=["']$))["']$/, '$1'))
+    console.log("sting is" + whattosend.replace(/^["'](.+(?=["']$))["']$/, '$1'))
+    
+    }
+ 
+  }
+
+  // Get the form element
+  const form = document.getElementById("myForm");
+
+  // Add 'submit' event handler
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    sendData();
+  });

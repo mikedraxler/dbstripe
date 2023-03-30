@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+   <h1>
+   xhr POST to Server
+   </h1>
+   <body>
+    <!-- enctype="multipart/form-data" -->
+    <form enctype="multipart/form-data" id="myForm">
+        <input type='text' id="username" name="email" />
+        <input type='text' id="username" name="pass"  value="baz" />
+        <button type='button' value='Send' name='Send' onclick='send()' >
+            Send
+          </button>
+    </form>
+
+    <br/>
+    <output style="border: 2px solid red; min-width: 500px; width: 500px; " id="output"> hello</output>
+    
+     <script>
+       function send () {
+         var number = {
+           value: document.getElementById('username').value + document.getElementById('password').value
+           
+           }
+
+           
+     
+    
+           
+
+         var xhr = new window.XMLHttpRequest()
+         xhr.open('POST', '/num', true)
+         xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+         xhr.send(JSON.stringify(number))
+        
+       }
+     </script>
+   
+
+
+
+   </body>
+</html>
