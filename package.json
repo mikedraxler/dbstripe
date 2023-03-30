@@ -11,7 +11,6 @@
   "scripts": {
     "start": "node app.js",
     "build": ""
-
   },
   "description": "In this tutorial we will create simple form that will save user data to server implemented in Node.js with MongoDB database and allow us to see saved data on a separate page in JSON format.",
   "version": "1.0.0",
